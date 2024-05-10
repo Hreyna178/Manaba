@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MANABA BOUTIQUE</title>
+    <!-- CSS para estilos y diseño -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5ddea; /* Fondo rosa claro */
+            color: #4b2354; /* Texto morado oscuro */
+        }
+
+        header {
+            background-color: #be9ccc; /* Encabezado morado claro */
+            color: white;
+            padding: 0px;
+            text-align: center;
+	    position: fixed;
+	    width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #7c2852; /* Encabezados rosa oscuro */
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f8c9e6; /* Fondo rosa claro */
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        .product img {
+            max-width: 100%;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #7c2852; /* Botones rosa oscuro */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #992c59; /* Botones rosa más oscuro al pasar el ratón */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 100px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #be9ccc; /* Pie de página morado claro */
+            color: white;
+            padding: 0px;
+            text-align: center;
+            position: bottom;
+            left: 0;
+            bottom: 0x;
+            width: 100%;
+        }
+
+        .social-media a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MANABA BOUTIQUE</h1>
+        <nav>
+            <ul>
+                <li><a href="#catalogos">Catálogos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#carrito">Carrito de Compras</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#quejas">Número de Quejas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="catalogos">
+        <h2>Catálogos</h2>
+        <div class="product-list">
+            <div class="product">
+                <h3>Vestido azul y rosa</h3>
+                <img src="./vestidos/vestido azul y rosa.jpeg" alt="Vestido azul y rosa">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $350</p>
+                <button class="add-to-cart" data-product="vestido azul y rosa" data-price="80">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido aziñ con estampado rojo</h3>
+                <img src="./vestidos/vestido aziñ con estampado rojo.jpeg" alt="Falda de Cuero">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $650</p>
+                <button class="add-to-cart" data-product="vestido aziñ con estampado rojo" data-price="65">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido azulblanco</h3>
+                <img src="./vestidos/vestido azulblanco.jpeg" alt="Falda Rosa">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $500</p>
+                <button class="add-to-cart" data-product="vestido azulblanco" data-price="450">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido azulrey</h3>
+                <img src="./vestidos/vestido azulrey.jpeg" alt="Falda Negra">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $555</p>
+                <button class="add-to-cart" data-product="vestido azulrey" data-price="55">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido blancoyazul</h3>
+                <img src="./vestidos/vestido blancoyazul.jpeg" alt="Falda Azul">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $700</p>
+                <button class="add-to-cart" data-product="vestido blancoyazul" data-price="70">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>Vestido con estampado rosa</h3>
+                <img src="./vestidos/Vestido con estampado rosa.jpeg" alt="Gorro de Diseñador">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $900</p>
+                <button class="add-to-cart" data-product="Vestido con estampado rosa" data-price="90">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido rosa bordes brillosos</h3>
+                <img src="./vestidos/vestido rosa bordes brillosos.jpeg" alt="Calcetines">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $500</p>
+                <button class="add-to-cart" data-product="vestido rosa bordes brillosos" data-price="50">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido elegante rosa</h3>
+                <img src="./vestidos/vestido elegante rosa.jpeg" alt="Blusa Amarilla">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $750</p>
+                <button class="add-to-cart" data-product="vestido elegante rosa" data-price="75">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido azul</h3>
+                <img src="./vestidos/vestido azul.jpeg" alt="Blusa Verde">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $650</p>
+                <button class="add-to-cart" data-product="vestido azul" data-price="60">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negro con joyeria</h3>
+                <img src="./vestidos/vestido negro con joyeria.jpeg" alt="Blusa Roja">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $700</p>
+                <button class="add-to-cart" data-product="vestido negro con joyeria" data-price="70">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negro largo con guantes</h3>
+                <img src="./vestidos/vestido negro largo con guantes.jpeg" alt="Pantalones Vaqueros">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $800</p>
+                <button class="add-to-cart" data-product="vestido negro largo con guantes" data-price="80">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negro largo</h3>
+                <img src="./vestidos/vestido negro largo.jpeg" alt="Camisa a Cuadros">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $450</p>
+                <button class="add-to-cart" data-product="vestido negro largo" data-price="45">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negroconmoños</h3>
+                <img src="./vestidos/vestido negroconmoños.jpeg" alt="Suéter de Punto">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $600</p>
+                <button class="add-to-cart" data-product="vestido negroconmoños" data-price="60">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negrocorazon</h3>
+                <img src="./vestidos/vestido negrocorazon.jpeg" alt="Chaquetón">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $805</p>
+                <button class="add-to-cart" data-product="vestido negrocorazon" data-price="85">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h3>vestido negrocorto</h3>
+                <img src="./vestidos/vestido negrocorto.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $700</p>
+                <button class="add-to-cart" data-product="vestido negrocorto" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido negrosinmangas</h3>
+                <img src="./vestidos/vestido negrosinmangas.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $800</p>
+                <button class="add-to-cart" data-product="vestido negrosinmangas" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido rosaestampado</h3>
+                <img src="./vestidos/vestido rosaestampado.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $570</p>
+                <button class="add-to-cart" data-product="vestido rosaestampado" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido rosapastel</h3>
+                <img src="./vestidos/vestido rosapastel.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $300</p>
+                <button class="add-to-cart" data-product="vestido rosapastel" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido torero</h3>
+                <img src="./vestidos/vestido torero.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $1200</p>
+                <button class="add-to-cart" data-product="vestido torero" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido tropical</h3>
+                <img src="./vestidos/vestido tropical.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $850</p>
+                <button class="add-to-cart" data-product="vestido tropical" data-price="90">Agregar al Carrito</button>
+            </div>
+		<div class="product">
+                <h3>vestido verdecorto</h3>
+                <img src="./vestidos/vestido verdecorto.jpeg" alt="Vestido de Noche">
+                <p>tallas disponibles: X, L, M, S.</p>
+                <p>Precio: $600</p>
+                <button class="add-to-cart" data-product="vestido verdecorto" data-price="90">Agregar al Carrito</button>
+            </div>
+            <!-- Agregar más productos aquí -->
+        </div>
+    </section>
+
+    <section id="ofertas">
+        <h2>Ofertas</h2>
+        <p>Aprovecha nuestras ofertas especiales en una amplia selección de productos de moda. ¡No te las pierdas!</p>
+    </section>
+
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-list">
+            <li>No hay productos en el carrito.</li>
+        </ul>
+        <p>Total a pagar: $<span id="total-price">0.00</span></p>
+        <button id="clear-cart">Vaciar Carrito</button>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Para consultas y asistencia, no dudes en contactarnos:</p>
+        <ul>
+            <li>Teléfono: 123-456-7890</li>
+            <li>Correo electrónico:Manaba_Boutique@gmail.com</li>
+        </ul>
+    </section>
+
+    <section id="quejas">
+        <h2>Número de Quejas</h2>
+        <p>Si tienes alguna queja o preocupación, por favor contáctanos al siguiente número:</p>
+        <p>Número de Quejas: 555-555-5555</p>
+    </section>
+
+    <footer>
+        <p>Síguenos en redes sociales:</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/Manaba_Boutique" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/Manaba_Boutique" target="_blank">Instagram</a>
+            <a href="https://twitter.com/Manaba_Boutique" target="_blank">Twitter</a>
+        </div>
+        <p>© 2024 C.Francisco I.Madero 266. Benito juarez, 85060, Cdad Obregon, Son.</p>
+    </footer>
+
+    <!-- JavaScript para interacción -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartList = document.getElementById('cart-list');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const clearCartButton = document.getElementById('clear-cart');
+            const totalPriceElement = document.getElementById('total-price');
+            let cart = {};
+
+            addToCartButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const product = button.getAttribute('data-product');
+                    const price = parseFloat(button.getAttribute('data-price'));
+
+                    if (cart[product]) {
+                        cart[product].quantity++;
+                    } else {
+                        cart[product] = { quantity: 1, price: price };
+                    }
+
+                    updateCartDisplay();
+                });
+            });
+
+            clearCartButton.addEventListener('click', () => {
+                cart = {};
+                updateCartDisplay();
+            });
+
+            function updateCartDisplay() {
+                cartList.innerHTML = '';
+
+                if (Object.keys(cart).length === 0) {
+                    cartList.innerHTML = '<li>No hay productos en el carrito.</li>';
+                    totalPriceElement.textContent = '0.00';
+                } else {
+                    let total = 0;
+
+                    for (const [product, data] of Object.entries(cart)) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${product} x${data.quantity} - $${data.price * data.quantity}`;
+                        cartList.appendChild(listItem);
+
+                        total += data.price * data.quantity;
+                    }
+
+                    totalPriceElement.textContent = total.toFixed(2);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
